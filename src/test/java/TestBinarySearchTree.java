@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class TestBinarySearchTree {
     BinarySearchTree<Integer> tree;
-    Node<Integer> root;
-
+    Node<Integer> root ;
     @BeforeEach
     public void setUp() {
         tree = new BinarySearchTree<>();
@@ -50,13 +49,11 @@ public class TestBinarySearchTree {
         System.out.println("--------------");
         tree.inOrder(root);
     }
-
     @Test
     public void preOrder() {
         System.out.println("--------------");
         tree.preOrder(root);
     }
-
     @Test
     public void postOrder() {
         System.out.println("--------------");
@@ -64,9 +61,18 @@ public class TestBinarySearchTree {
     }
 
     @Test
-    public void testSize() {
+    public void testSize(){
 
         Assertions.assertEquals(13, tree.size(root));
     }
-}
 
+    @Test
+    public void testSearch_true() {
+        Assertions.assertEquals(true, tree.search(root, 63));
+        System.out.println("Element found");
+    }
+    @Test
+    public void testSearch_false() {
+        Assertions.assertEquals(false, tree.search(root, 100));
+    }
+}
